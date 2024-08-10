@@ -1,11 +1,12 @@
 @extends('layouts.applogin')
-@title('Login')
+<!-- @title('Login') -->
 @section('content')
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="card">
         <div class="login-logo">
-            <img src="https://www.vecteezy.com/png/23450148-rocket-icon-logo-on-transparent-background-created-with-generative-ai" alt="" width="150px">
+            <!-- <img src="https://www.vecteezy.com/png/23450148-rocket-icon-logo-on-transparent-background-created-with-generative-ai" alt="" width="150px"> -->
+            <p>Login</p>
         </div>
         <div class="card-body login-card-body">
             <p class="login-box-msg">@yield('title')</p>
