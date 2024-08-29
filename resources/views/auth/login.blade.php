@@ -1,80 +1,72 @@
 @extends('layouts.applogin')
-@section('title', 'Login')
+@title('Login')
 @section('content')
-
-<!-- icheck bootstrap -->
-<link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
-<!-- Theme style -->
-<link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
-</head>
-<body class="hold-transition login-page">
 <div class="login-box">
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
-      </div>
-
-      <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <div class="input-group mb-3">
-          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-          @error('email')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="login-logo">
+            <img src="https://www.vecteezy.com/png/23450148-rocket-icon-logo-on-transparent-background-created-with-generative-ai" alt="" width="150px">
         </div>
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">@yield('title')</p>
 
-        <div class="input-group mb-3">
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-          @error('password')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="input-group mb-3">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <!-- /.col -->
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{ route('register') }}" class="btn btn-success btn-block">{{ __('Register') }}</a>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            <!-- /.social-auth-links -->
+
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-2">
+                        @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                        @endif
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember" name="remember" />
-              <label for="remember"> Remember Me </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
+        <!-- /.login-card-body -->
     </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
 </div>
-<!-- /.login-box -->
-
+<!-- /.login-box -->
 @endsection
